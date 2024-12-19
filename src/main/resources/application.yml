@@ -5,16 +5,16 @@ spring:
         registration:
           naver:
             client-name: naver
-            client-id: 7OwPSdVa1YydZBF3EjQM
-            client-secret: YCYKXbM2ru
+            client-id: ${NAVER_ID}
+            client-secret: ${NAVER_SECRET}
             redirect-uri: http://localhost:8080/login/oauth2/code/naver
             authorization-grant-type: authorization_code
             scope: name, email
 
           google:
             client-name: google
-            client-id: 146398229574-1guehadtq6i590hf9flsq4pbsr0ndrg0.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${GOOGLE_ID}
+            client-secret: ${GOOGLE_SECRET}
             redirect-uri: http://localhost:8080/login/oauth2/code/google
             authorization-grant-type: authorization_code
             scope: profile, email
