@@ -21,5 +21,25 @@
 * 변수 설정만 진행하면 OAuth2AuthorizationRedirectFilter -> OAuth2LoginAuthenticationFilter -> OAuth2LoginAuthenticationProvider 까지의 과정을 추가 설정하지 않아도 자동으로 진행한다.
 * 따라서 사용자는 UserDetailsService, UserDetails만 구현하면 됨
 ```yaml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          서비스명:
+            client-name: 서비스명
+            client-id: 서비스에서 발급받은 아이디
+            client-secret: 서비스에서 발급받은 비밀번호
+            redirect-uri: 서비스에 등록한 우리쪽 로그인 성공 URI
+            authorization-grant-type: authorization_code
+            scope: 리소스 서버에서 가져올 데이터 범위
+        provider:
+          서비스명:
+            authorization-uri: 서비스 로그인 창 주소
+            token-uri: 토큰 발급 서버 주소 (인증 서버)
+            user-info-uri: 사용자 정보 획득 주소 (리소스 서버)
+            user-name-attribute: 응답 데이터 변수
 
 ```
+* Registration은 외부 서비스에서 우리 서비스를 특정하기 위해 등록하는 정보여서 등록이 필수적
+* 하지만 Provider의 경우 서비스별로 정해진 값 존재, 유명 서비스의 경우 내부적으로 데이터 가지고 있음 (구글, 페이스북, 깃허브 등)
