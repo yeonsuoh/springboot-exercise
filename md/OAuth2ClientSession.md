@@ -43,3 +43,20 @@ spring:
 ```
 * Registration은 외부 서비스에서 우리 서비스를 특정하기 위해 등록하는 정보여서 등록이 필수적
 * 하지만 Provider의 경우 서비스별로 정해진 값 존재, 유명 서비스의 경우 내부적으로 데이터 가지고 있음 (구글, 페이스북, 깃허브 등)
+
+---
+
+### OAuth2Response
+* 네이버 데이터
+```
+{
+   resultCode=xx, message=xx, response={id=xx, name=xx}
+}
+```
+
+* 구글 데이터
+```
+{
+   resultCode=xx, message=xx, id=xx, name=xx
+}
+```
