@@ -1,6 +1,19 @@
 spring:
   profiles:
     active: env
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/data1?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: root
+    password: mysql
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
   security:
     oauth2:
       client:
