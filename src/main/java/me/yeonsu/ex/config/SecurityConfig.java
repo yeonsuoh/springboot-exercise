@@ -1,5 +1,6 @@
 package me.yeonsu.ex.config;
 
+import me.yeonsu.ex.oauth2.CustomClientRegistrationRepo;
 import me.yeonsu.ex.service.CustomOAuth2UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +14,13 @@ public class SecurityConfig {
 
     private final CustomOAuth2UserService customOAuth2UserService;
 
-    public SecurityConfig(CustomOAuth2UserService customOAuth2UserService) {
+//    private final CustomClientRegistrationRepo customClientRegistrationRepo;
+
+    public SecurityConfig(CustomOAuth2UserService customOAuth2UserService
+//                          CustomClientRegistrationRepo customClientRegistrationRepo
+    ) {
         this.customOAuth2UserService = customOAuth2UserService;
+//        this.customClientRegistrationRepo = customClientRegistrationRepo;
     }
 
     @Bean
@@ -28,6 +34,7 @@ public class SecurityConfig {
         http
                 .oauth2Login((oauth2) -> oauth2
                         .loginPage("/login")
+//                        .clientRegistrationRepository(customClientRegistrationRepo)
                         .userInfoEndpoint((userInfoEndpointConfig) ->
                                 userInfoEndpointConfig.userService(customOAuth2UserService)));
 
