@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: env
   security:
     oauth2:
       client:
