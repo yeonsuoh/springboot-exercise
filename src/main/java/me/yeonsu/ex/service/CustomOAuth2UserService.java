@@ -1,5 +1,6 @@
 package me.yeonsu.ex.service;
 
+import me.yeonsu.ex.dto.CustomOAuth2User;
 import me.yeonsu.ex.dto.GoogleResponse;
 import me.yeonsu.ex.dto.NaverResponse;
 import me.yeonsu.ex.dto.OAuth2Response;
@@ -30,5 +31,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         }
 
         // 나머지 구현
+        String role = "ROLE_USER";
+
+        return new CustomOAuth2User(oAuth2Response, role);
+
     }
 }
